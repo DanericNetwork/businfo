@@ -38,7 +38,7 @@ module.exports = {
         const embed = new MessageEmbed()
         .setColor('4FFF33')
         .setTitle('Stats Updated')
-        .addField('New Total Curbs Hit', `${newcurb}`, false)
+        .addField('New Total Curbs Hit', `${newcurb}`, true)
         .addField("New Total Delay", `${newdelay} minutes`, true)
         message.channel.send({content: null, embeds: [embed] });
     },
