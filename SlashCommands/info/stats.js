@@ -4,8 +4,8 @@ const config = require('../../config.json');
 const statsmodel = require('../../models/stats');
 
 module.exports = {
-    name: "info",
-    description: "Get yout API key if you already have an account",
+    name: "stats",
+    description: "Get stats about the RRReis busses that we've been in.",
     /**
      *
      * @param {Client} client
