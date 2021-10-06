@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, message, args) => {
         var statscount = await statsmodel.findOne(
             {
-              id: 'me',
+              id: 'all',
             });
 
         const curbs = parseInt(args[0]);
@@ -27,7 +27,7 @@ module.exports = {
         const newskips = statscount.skips + skips;
         await statsmodel.findOneAndUpdate(
             {
-                id: 'me',
+                id: 'all',
             },
             {
               curb: newcurb,
