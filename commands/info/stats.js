@@ -16,8 +16,9 @@ module.exports = {
         const embed = new MessageEmbed()
         .setColor('4FFF33')
         .setTitle('Stats')
-        .addField('Total Curbs Hit', `${statscount.stoeprand}`, true)
-        .addField("Total Delay", `${statscount.vertraging} minutes`, true)
+        .addField('Total Curbs Hit', `${statscount.curb}`, true)
+        .addField("Total Delay", `${statscount.delay} minutes`, true)
+        .addField("Total Stops skipped", `${statscount.skips}`, true)
         message.channel.send({content: null, embeds: [embed] });
     },
 };

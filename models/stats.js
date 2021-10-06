@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 const busSchema = new mongoose.Schema({
     id: { type: String },
 
-    stoeprand: { type: Number },
+    curb: { type: Number },
 
-    vertraging: { type: Number },
+    delay: { type: Number },
+
+    skips: { type: Number },
 });
 module.exports = mongoose.model("stats", busSchema);

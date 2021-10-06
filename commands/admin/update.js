@@ -16,19 +16,23 @@ module.exports = {
 
         const curbs = parseInt(args[0]);
         const delay = parseInt(args[1]);
+        const skips = parseInt(args[2]);
 
         if(isNaN(curbs)) return message.channel.send("Please enter a valid number of curbs.");
         if(isNaN(delay)) return message.channel.send("Please enter a valid delay.");
+        if(isNaN(skips)) return message.channel.send("Please enter a valid number of skips.");
 
-        const newcurb = statscount.stoeprand + curbs;
-        const newdelay = statscount.vertraging + delay;
+        const newcurb = statscount.curb + curbs;
+        const newdelay = statscount.delay + delay;
+        const newskips = statscount.skips + skips;
         await statsmodel.findOneAndUpdate(
             {
                 id: 'me',
             },
             {
-              stoeprand: newcurb,
-              vertraging: newdelay,
+              curb: newcurb,
+              delay: newdelay,
+              skips: newskips,
             },
             {
               upsert: true,
@@ -40,6 +44,7 @@ module.exports = {
         .setTitle('Stats Updated')
         .addField('New Total Curbs Hit', `${newcurb}`, true)
         .addField("New Total Delay", `${newdelay} minutes`, true)
+        .addField("New Total Skips", `${newskips}`, true)
         message.channel.send({content: null, embeds: [embed] });
     },
 };
