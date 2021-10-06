@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, message, args) => {
         var statscount = await statsmodel.findOne(
             {
-              id: 'me',
+              id: 'all',
             });
         const embed = new MessageEmbed()
         .setColor('#328732')

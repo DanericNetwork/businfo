@@ -15,7 +15,7 @@ module.exports = {
     run: async (client, interaction, args) => {
         var statscount = await statsmodel.findOne(
             {
-              id: 'me',
+              id: 'all',
             });
         const user = client.users.cache.get(interaction.member.id);
 
