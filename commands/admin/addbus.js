@@ -1,5 +1,6 @@
 const { Message, MessageEmbed, Client } = require("discord.js");
 const statsmodel = require('../../models/stats');
+const config = require('../../config.json');
 
 module.exports = {
     name: "addbus",
@@ -9,6 +10,8 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
+            // Checks if author is an admin
+        if(!config.admins.includes(message.author.id)) return message.channel.send("You do not have permission to use this command!");
 
         const busnumber = parseInt(args[0]);
 
