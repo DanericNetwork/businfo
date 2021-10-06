@@ -12,12 +12,12 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
         const embed2 = new MessageEmbed()
-        .setColor('4FFF33')
+        .setColor('#328732')
         .setTitle('Ping?')
         await interaction.followUp({ embeds: [embed2] });
 
         const embed = new MessageEmbed()
-        .setColor('4FFF33')
+        .setColor('#328732')
         .setTitle(`Connection`)
         .addField('Discord', `\`${client.ws.ping}\` ms`, false);
     
