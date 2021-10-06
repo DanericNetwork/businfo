@@ -71,9 +71,9 @@ module.exports = {
         .addField('New Total Curbs Hit', `${newcurb}`, true)
         .addField("New Total Delay", `${newdelay} minutes`, true)
         .addField("New Total Skips", `${newskips}`, true)
-        .addField(`New ${busnumber} Curbs Hit`, `${newbuscurb}`, true)
-        .addField(`New ${busnumber} Delay`, `${newbusdelay} minutes`, true)
-        .addField(`New ${busnumber} Skips`, `${newbusskips}`, true)
+        .addField(`Bus ${busnumber} Curbs Hit`, `${newbuscurb}`, true)
+        .addField(`Bus ${busnumber} Delay`, `${newbusdelay} minutes`, true)
+        .addField(`Bus ${busnumber} Skips`, `${newbusskips}`, true)
         message.channel.send({content: null, embeds: [embed] });
     },
 };
