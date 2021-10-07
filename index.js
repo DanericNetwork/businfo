@@ -1,8 +1,6 @@
+require('./server')
 const { Client, Collection } = require("discord.js");
 const mongoose = require("mongoose");
-
-const express = require('express');
-const app = express();
 
 const config = require('./config.json');
 const client = new Client({
