@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const config = require('./config');
 const path = require("path");
 const port = config.port || 1234;
@@ -7,6 +8,7 @@ const db = require('mongoose');
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', async (req, res) => {
     var statscount = await statsmodel.findOne(
