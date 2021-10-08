@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1 class="title">Curbs Hit: <%- statscount.curb %></h1>
-    <h1 class="title">Delay: <%- statscount.delay %> minutes</h1>
-    <h1 class="title">Stops Skipped: <%- statscount.skips %></h1>
+    <h1 class="title">Global Bus Stats</h1>
+    <h4 class="stats">Curbs Hit: <%- statscount.curb %></h1>
+    <h4 class="stats">Delay: <%- statscount.delay %> minutes</h1>
+    <h4 class="stats">Stops Skipped: <%- statscount.skips %></h1>
 <div class="busses">
     <% busnum.forEach (bus => { %>
     <a class="busbtn" href="/stats/<%- bus %>"><%- bus %></a>
@@ -18,6 +19,10 @@
 
 </div>
     
-
+<div class="info">
+    <p>
+        <strong>Info:</strong> These are stats that we've collected from the RRReis busses and from the busses that we've been in. We've been collecting these statistics since 5/10/2021.
+    </p>
+</div>
 </body>
 </html>
