@@ -8,13 +8,24 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1 class="title">Curbs Hit: <%- statscount.curb %></h1>
-    <h1 class="title">Delay: <%- statscount.delay %> minutes</h1>
-    <h1 class="title">Stops Skipped: <%- statscount.skips %></h1>
+    <% if(busExists) { %>
+        <h1 class="title">Bus stats of bus <%- buss %></h1>
+    <h1 class="stats">Curbs Hit: <%- statscount.curb %></h1>
+    <h1 class="stats">Delay: <%- statscount.delay %> minutes</h1>
+    <h1 class="stats">Stops Skipped: <%- statscount.skips %></h1>
     
 <div class="busses">
     <a class="busbtn" href="/">Back Home</a>
 </div>
-
+<% if(["5514", "5737", "5746"].includes(buss)) { %>
+    <div class="info">
+        <p>
+            <strong>Info:</strong> The stats of this bus is collected by: Zaadinternet#2996.
+        </p>
+    </div>
+<% } %>
+<%} else {%>
+    <h1 class="title">No bus found</h1>
+<% } %>
 </body>
 </html>
