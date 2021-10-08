@@ -19,4 +19,14 @@ app.get('/', async (req, res) => {
         statscount,
 	});
 });
-app.listen(port, () => console.log('\x1b[31m%s\x1b[0m', '[SERVER]', '[CONNECTION UPDATE] \x1b[32m[WEB]\x1b[0m', `Connected @ localhost:${port}`));
+
+app.get('/stats/:bus', async (req, res) => {
+    var statscount = await statsmodel.findOne(
+        {
+          id: req.params.bus,
+        });
+	res.render('index', {
+        statscount,
+	});
+});
+app.listen(port, () => console.log('\x1b[31m%s\x1b[0m', '[SERVER]', '\x1b[32m[WEB]\x1b[0m', `Connected @ localhost:${port}`));
