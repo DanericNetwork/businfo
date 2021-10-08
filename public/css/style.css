@@ -1,11 +1,23 @@
+@font-face {
+    font-family: 'whyte';
+    src: url('/fonts/Whyte-Medium.ttf');
+}
+
 body {
-    background-color: rgb(56, 52, 94);
+    background-color: #090025;
     color: #fff;
+    font-family: whyte;
 }
 
 .title {
     font-size: 40px;
-    font-family: 'Roboto', sans-serif;
+    font-family: whyte;
+    text-align: center;
+}
+
+.stats {
+    font-size: 20px;
+    font-family: whyte;
     text-align: center;
 }
 
@@ -29,7 +41,7 @@ body {
 
 .busbtn {
     margin: 2px;
-    font-family: proxima-nova, sans-serif;
+    font-family: whyte;
     min-height: 38px;
     font-size: 14px;
     line-height: 22px;
@@ -53,3 +65,10 @@ body {
     color: rgb(242, 244, 251);
     border: none;
 }
+
+.info {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
