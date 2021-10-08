@@ -63,12 +63,12 @@ app.get('/api/:bus', async (req, res) => {
 app.get('/api', async (req, res) => {
     var statscount = await statsmodel.findOne(
         {
-          id: req.params.bus,
+          id: 'all',
         });
-        const busExists = statscount != null;
-        const buss = req.params.bus
 	res.status(200).json({
-                "message": "go to /api/(busnumber) to search for a bus",
+                "curb": statscount.curb,
+                "delay": statscount.delay,
+                "skips": statscount.skips
 	});
 });
 app.listen(port, () => console.log('\x1b[31m%s\x1b[0m', '[SERVER]', '\x1b[32m[WEB]\x1b[0m', `Connected @ localhost:${port}`));
