@@ -15,8 +15,12 @@ app.get('/', async (req, res) => {
         {
           id: 'all',
         });
+        const busnum = await statsmodel.distinct("id");
+        const busi = busnum.map(x => x)
 	res.render('index', {
         statscount,
+        busnum,
+        busi,
 	});
 });
 
@@ -25,7 +29,7 @@ app.get('/stats/:bus', async (req, res) => {
         {
           id: req.params.bus,
         });
-	res.render('index', {
+	res.render('stats', {
         statscount,
 	});
 });

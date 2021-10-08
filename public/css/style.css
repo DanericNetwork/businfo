@@ -6,4 +6,48 @@ body {
 .title {
     font-size: 40px;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.busses {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 80%;
+    margin: auto;
+}
+
+.btn {
+    background-color: #fff;
+    color: #000;
+    border: 1;
+    padding: 10px;
+    border-radius: .25rem;
+    text-decoration: none;
+}
+
+.busbtn {
+    font-family: proxima-nova, sans-serif;
+    min-height: 38px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    color: rgb(242, 244, 251);
+    border-radius: 8px;
+    transition: background-color 0.15s ease-out 0s, color, opacity, border;
+    outline: none;
+    text-decoration: none;
+    background: rgb(57, 148, 255);
+    border-width: initial;
+    border-style: none;
+    
+}
+.busbtn:hover {
+	background: rgb(0, 118, 255);
+    color: rgb(242, 244, 251);
+    border: none;
 }
