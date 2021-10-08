@@ -15,6 +15,7 @@ body {
     max-width: 80%;
     margin: auto;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -27,8 +28,7 @@ body {
 }
 
 .busbtn {
-    margin-left: 2px;
-    margin-right: 2px;
+    margin: 2px;
     font-family: proxima-nova, sans-serif;
     min-height: 38px;
     font-size: 14px;
