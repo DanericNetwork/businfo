@@ -37,4 +37,26 @@ app.get('/stats/:bus', async (req, res) => {
         buss,
 	});
 });
+
+app.get('/api/:bus', async (req, res) => {
+    var statscount = await statsmodel.findOne(
+        {
+          id: req.params.bus,
+        });
+        const busExists = statscount != null;
+        const buss = req.params.bus
+        if(busExists){
+	res.status(200).json({
+                "message": "success",
+                "id": statscount.id,
+                "curb": statscount.curb,
+                "delay": statscount.delay,
+                "skips": statscount.skips
+	});
+        } else {
+        res.status(500).json({
+                "error": `bus with id ${buss} not found`,
+        });
+        }
+});
 app.listen(port, () => console.log('\x1b[31m%s\x1b[0m', '[SERVER]', '\x1b[32m[WEB]\x1b[0m', `Connected @ localhost:${port}`));
