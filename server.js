@@ -29,8 +29,12 @@ app.get('/stats/:bus', async (req, res) => {
         {
           id: req.params.bus,
         });
+        const busExists = statscount != null;
+        const buss = req.params.bus
 	res.render('stats', {
         statscount,
+        busExists,
+        buss,
 	});
 });
 app.listen(port, () => console.log('\x1b[31m%s\x1b[0m', '[SERVER]', '\x1b[32m[WEB]\x1b[0m', `Connected @ localhost:${port}`));
