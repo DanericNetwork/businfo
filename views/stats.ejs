@@ -11,14 +11,14 @@
 <body>
     <% if(busExists) { %>
         <h1 class="title">Bus stats of <i class="fas fa-bus"></i> <%- buss %></h1>
-    <h1 class="stats">Curbs Hit: <%- statscount.curb %></h1>
-    <h1 class="stats">Delay: <%- statscount.delay %> minutes</h1>
-    <h1 class="stats">Stops Skipped: <%- statscount.skips %></h1>
+    <h1 class="stats"><i class="fad fa-bus"></i> Curbs Hit: <%- statscount.curb %></h1>
+    <h1 class="stats"><i class="fad fa-clock"></i> Delay: <%- statscount.delay %> minutes</h1>
+    <h1 class="stats"><i class="fad fa-hand-paper"></i> Stops Skipped: <%- statscount.skips %></h1>
     
 <div class="busses">
     <a class="busbtn" href="/"><i class="fas fa-arrow-left"></i> Back Home</a>
 </div>
-<% if(["5514", "5737", "5746"].includes(buss)) { %>
+<% if(buss.startsWith('5')) { %>
     <div class="info">
         <p>
             <strong>Info:</strong> The stats of this bus is collected by: Zaadinternet#2996.
