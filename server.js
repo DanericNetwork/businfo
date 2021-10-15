@@ -5,6 +5,8 @@ const path = require("path");
 const port = config.port || 1234;
 const statsmodel = require('./models/stats');
 const db = require('mongoose');
+const moment = require('moment');
+require('moment-duration-format');
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
@@ -16,9 +18,12 @@ app.get('/', async (req, res) => {
           id: 'all',
         });
         const busnum = await statsmodel.distinct("id");
-        const busi = busnum.map(x => x)
+        const busi = busnum.map(x => x);
+        const msdelay = statscount.delay * 60000;
+        const formatteddelay = moment.duration(msdelay).format("h [hours], m [minutes]");
 	res.render('index', {
         statscount,
+        formatteddelay,
         busnum,
         busi,
 	});

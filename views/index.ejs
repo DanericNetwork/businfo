@@ -11,7 +11,7 @@
 <body>
     <h1 class="title">Global Bus Stats</h1>
     <h4 class="stats"><i class="fad fa-bus"></i> Curbs Hit: <%- statscount.curb %></h1>
-    <h4 class="stats"><i class="fad fa-clock"></i> Delay: <%- statscount.delay %> minutes</h1>
+    <h4 class="stats"><i class="fad fa-clock"></i> Delay: <%- formatteddelay %> (<%- statscount.delay %> min)</h1>
     <h4 class="stats"><i class="fad fa-hand-paper"></i> Stops Skipped: <%- statscount.skips %></h1>
 <div class="busses">
     <% busnum.forEach (bus => { 
