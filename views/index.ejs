@@ -16,7 +16,7 @@
 <div class="busses">
     <% busnum.forEach (bus => { 
         if(bus === "all") return; %>
-    <a class="busbtn" href="/stats/<%- bus %>"><i class="fas fa-bus"></i> <%- bus %></a>
+    <a class="busbtn" href="/stats/<%- bus.id %>"><i class="fas fa-bus"></i> <%- bus.id %></a>
     <% }); %>
 
 </div>

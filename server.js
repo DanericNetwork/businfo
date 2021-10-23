@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
         {
           id: 'all',
         });
-        const busnum = await statsmodel.distinct("id");
+        const busnum = await statsmodel.find();
         const busi = busnum.map(x => x);
         const msdelay = statscount.delay * 60000;
         const formatteddelay = moment.duration(msdelay).format("h [hours], m [minutes]");
