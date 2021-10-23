@@ -14,19 +14,23 @@ module.exports = {
         if(!config.admins.includes(message.author.id)) return message.channel.send("You do not have permission to use this command!");
 
         const busnumber = parseInt(args[0]);
+        const ovtype = args[1];
 
         if(isNaN(busnumber)) return message.channel.send("Please enter a valid busnumber.");
+        if(!ovtype) return message.channel.send("Please enter a valid ovtype.");
+        if(!["train", "bus"].includes(ovtype)) return message.channel.send(`Please enter a valid type. Usage: \`${config.prefix}addbus <bus/train number> bus/train\``);
           var statscount = await statsmodel.create(
               { 
                   id: busnumber, 
                   curb: 0,
                   delay: 0,
                   skips: 0,
+                  type: ovtype,
                 });
           statscount.save();
         const embed = new MessageEmbed()
         .setColor('#328732')
-        .setTitle(`Bus ${busnumber} added!`)
+        .setTitle(`Bus/Train ${busnumber} added!`)
         message.channel.send({content: null, embeds: [embed] });
     },
 };
