@@ -7,5 +7,7 @@ const busSchema = new mongoose.Schema({
     delay: { type: Number },
 
     skips: { type: Number },
+
+    type: { type: String },
 });
 module.exports = mongoose.model("stats", busSchema);
