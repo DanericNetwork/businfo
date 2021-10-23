@@ -15,7 +15,7 @@
     <h4 class="stats"><i class="fad fa-hand-paper"></i> Stops Skipped: <%- statscount.skips %></h1>
 <div class="busses">
     <% busnum.forEach (bus => { 
-        if(bus === "all") return; %>
+        if(bus.id === "all") return; %>
     <a class="busbtn" href="/stats/<%- bus.id %>"><i class="fas fa-bus"></i> <%- bus.id %></a>
     <% }); %>
 
