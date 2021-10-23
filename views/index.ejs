@@ -13,12 +13,23 @@
     <h4 class="stats"><i class="fad fa-bus"></i> Curbs Hit: <%- statscount.curb %></h1>
     <h4 class="stats"><i class="fad fa-clock"></i> Delay: <%- formatteddelay %> (<%- statscount.delay %> min)</h1>
     <h4 class="stats"><i class="fad fa-hand-paper"></i> Stops Skipped: <%- statscount.skips %></h1>
-<div class="busses">
-    <% busnum.forEach (bus => { 
-        if(bus.id === "all") return; %>
-    <a class="busbtn" href="/stats/<%- bus.id %>"><i class="fas fa-bus"></i> <%- bus.id %></a>
-    <% }); %>
-
+<div class="stats-rows">
+    <h2 class="stats-title bustitle">Busses</h2>
+    <div class="busses">
+        <% busnum.forEach (bus => { 
+            if(bus.id === "all") return; 
+            if(bus.type == "train") return; %>
+        <a class="busbtn" href="/stats/<%- bus.id %>"><i class="fas fa-bus"></i> <%- bus.id %></a>
+        <% }); %>
+    </div>
+    <h2 class="stats-title">Trains</h2>
+    <div class="trains">
+        <% busnum.forEach (bus => { 
+            if(bus.id === "all") return; 
+            if(bus.type == "bus") return; %>
+        <a class="busbtn" href="/stats/<%- bus.id %>"><i class="fas fa-bus"></i> <%- bus.id %></a>
+        <% }); %>
+    </div>
 </div>
     
 <div class="info">

@@ -3,6 +3,11 @@
     src: url('/fonts/Whyte-Medium.ttf');
 }
 
+@font-face {
+    font-family: 'righteous';
+    src: url('/fonts/Righteous-Regular.ttf');
+}
+
 body {
     background-color: #090025;
     color: #fff;
@@ -22,6 +27,15 @@ body {
 }
 
 .busses {
+    display: flex;
+    flex-direction: row;
+    max-width: 80%;
+    margin: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.trains {
     display: flex;
     flex-direction: row;
     max-width: 80%;
@@ -72,3 +86,23 @@ body {
     text-align: center;
 }
 
+.stats-rows {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.stats-title {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: righteous;
+    text-align: center;
+}
+
+.bustitle {
+    margin-top: 0px;
+}
