@@ -1,7 +1,6 @@
 require('./server')
 const { Client, Collection } = require("discord.js");
 const mongoose = require("mongoose");
-
 const config = require('./config.json');
 const client = new Client({
     intents: 32767,
@@ -10,6 +9,8 @@ module.exports = client;
 
 const DB_URI = config.mongodb;
 
+
+// Database connection
 mongoose
 	.connect(DB_URI, {
 		useNewUrlParser: true,

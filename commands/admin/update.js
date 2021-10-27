@@ -30,9 +30,9 @@ module.exports = {
 
 // Checks
 
-        if(isNaN(curbs)) return message.channel.send("Please enter a valid number of curbs.");
-        if(isNaN(delay)) return message.channel.send("Please enter a valid delay.");
-        if(isNaN(skips)) return message.channel.send("Please enter a valid number of skips.");
+        if(isNaN(curbs)) return message.channel.send("Please enter a valid number of curbs."); // Checks if curbs is a number
+        if(isNaN(delay)) return message.channel.send("Please enter a valid delay."); // Checks if delay is a number
+        if(isNaN(skips)) return message.channel.send("Please enter a valid number of skips."); // Checks if skips is a number
 
         const newcurb = statscount.curb + curbs;
         const newdelay = statscount.delay + delay;

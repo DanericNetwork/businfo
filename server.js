@@ -12,6 +12,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 app.use(express.static(__dirname + '/public'));
 
+// Main page
 app.get('/', async (req, res) => {
     var statscount = await statsmodel.findOne(
         {
@@ -29,6 +30,7 @@ app.get('/', async (req, res) => {
 	});
 });
 
+// Stats page of bus
 app.get('/stats/:bus', async (req, res) => {
     var statscount = await statsmodel.findOne(
         {
@@ -43,6 +45,7 @@ app.get('/stats/:bus', async (req, res) => {
 	});
 });
 
+// API of bus
 app.get('/api/:bus', async (req, res) => {
     var statscount = await statsmodel.findOne(
         {
@@ -65,6 +68,7 @@ app.get('/api/:bus', async (req, res) => {
         }
 });
 
+// Global API of total stats
 app.get('/api', async (req, res) => {
     var statscount = await statsmodel.findOne(
         {
@@ -76,4 +80,6 @@ app.get('/api', async (req, res) => {
                 "skips": statscount.skips
 	});
 });
+
+// Launch app on port
 app.listen(port, () => console.log('\x1b[31m%s\x1b[0m', '[SERVER]', '\x1b[32m[WEB]\x1b[0m', `Connected @ localhost:${port}`));
