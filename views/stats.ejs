@@ -10,7 +10,7 @@
 </head>
 <body>
     <% if(busExists) { %>
-        <h1 class="title">Stats of <i class="fas fa-bus"></i> <%- buss %></h1>
+        <h1 class="title">Stats of <% if(statscount.type == "bus") { %><i class="fas fa-bus"></i> <% } else { %> <i class="fas fa-train"></i> <% } %> <%- buss %></h1>
     <h1 class="stats"><i class="fad fa-bus"></i> Curbs Hit: <%- statscount.curb %></h1>
     <h1 class="stats"><i class="fad fa-clock"></i> Delay: <%- statscount.delay %> minutes</h1>
     <h1 class="stats"><i class="fad fa-hand-paper"></i> Stops Skipped: <%- statscount.skips %></h1>
