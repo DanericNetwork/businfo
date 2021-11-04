@@ -2,9 +2,9 @@ const client = require("../index");
 
 client.on("messageCreate", async (message) => {
     if (
-        message.author.bot ||
-        !message.guild ||
-        !message.content.toLowerCase().startsWith(client.config.prefix)
+        message.author.bot || // Ignore bots
+        !message.guild || // Ignore DMs
+        !message.content.toLowerCase().startsWith(client.config.prefix) // Ignore messages that don't start with the prefix
     )
         return;
 
