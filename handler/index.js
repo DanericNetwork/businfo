@@ -40,13 +40,13 @@ module.exports = async (client) => {
     });
     client.on("ready", async () => {
         // Register for a single guild
-            // await client.guilds.cache
-            //  .get("780717828109369344")
-            //  .commands.set(arrayOfSlashCommands);
+            await client.guilds.cache
+             .get("780717828109369344")
+             .commands.set(arrayOfSlashCommands);
         
 
-           const ughcommands = await client.api.applications(client.user.id).commands.get()
-           console.log(ughcommands)
+        //    const ughcommands = await client.api.applications(client.user.id).commands.get()
+        //    console.log(ughcommands)
           //  client.api.applications(client.user.id).commands('874669015002415114').delete()
 
         // Register for all the guilds the bot is in
