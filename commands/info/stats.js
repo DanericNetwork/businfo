@@ -9,7 +9,7 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
-        var statscount = await statsmodel.findOne(
+        let statscount = await statsmodel.findOne(
             {
               id: 'all',
             });

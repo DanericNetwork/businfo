@@ -15,10 +15,11 @@ mongoose
 	.connect(DB_URI, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
-	})
-	.catch((error) => console.error(error));
-
-// Global Variables
+	}).catch(err => {
+	console.log("\x1b[31m[ERROR]", `\x1b[0mMongoose Connection Error: \x1b[31m${err}`);
+	});
+	
+// Global letiables
 client.commands = new Collection();
 client.slashCommands = new Collection();
 client.config = require("./config.json");

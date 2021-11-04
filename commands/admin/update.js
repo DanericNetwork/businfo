@@ -12,7 +12,7 @@ module.exports = {
     run: async (client, message, args) => {
       // Checks if author is an admin
   if(!config.admins.includes(message.author.id)) return message.channel.send("You do not have permission to use this command!");
-        var statscount = await statsmodel.findOne(
+        let statscount = await statsmodel.findOne(
             {
               id: 'all',
             });
@@ -23,7 +23,7 @@ module.exports = {
         const delay = parseInt(args[2]);
         const skips = parseInt(args[3]);
         
-        var statscountbus = await statsmodel.findOne(
+        let statscountbus = await statsmodel.findOne(
           {
             id: busnumber,
           });

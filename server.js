@@ -14,7 +14,7 @@ app.use(express.static(__dirname + '/public'));
 
 // Main page
 app.get('/', async (req, res) => {
-    var statscount = await statsmodel.findOne(
+    let statscount = await statsmodel.findOne(
         {
           id: 'all',
         });
@@ -32,7 +32,7 @@ app.get('/', async (req, res) => {
 
 // Stats page of bus
 app.get('/stats/:bus', async (req, res) => {
-    var statscount = await statsmodel.findOne(
+    let statscount = await statsmodel.findOne(
         {
           id: req.params.bus,
         });
@@ -47,7 +47,7 @@ app.get('/stats/:bus', async (req, res) => {
 
 // API of bus
 app.get('/api/:bus', async (req, res) => {
-    var statscount = await statsmodel.findOne(
+    let statscount = await statsmodel.findOne(
         {
           id: req.params.bus,
         });
@@ -70,7 +70,7 @@ app.get('/api/:bus', async (req, res) => {
 
 // Global API of total stats
 app.get('/api', async (req, res) => {
-    var statscount = await statsmodel.findOne(
+    let statscount = await statsmodel.findOne(
         {
           id: 'all',
         });

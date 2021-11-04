@@ -14,7 +14,7 @@ module.exports = {
         const daneric = client.users.cache.get('244060616686305283');
         const frank = client.users.cache.get('207557174660956160');
 
-        var statscount = await statsmodel.findOne(
+        let statscount = await statsmodel.findOne(
             {
               id: busnumber,
             });

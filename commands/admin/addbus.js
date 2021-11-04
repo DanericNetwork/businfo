@@ -19,7 +19,7 @@ module.exports = {
         if(isNaN(busnumber)) return message.channel.send("Please enter a valid busnumber."); // Checks if busnumber is a number
         if(!ovtype) return message.channel.send("Please enter a valid ovtype."); // Checks if ovtype is given
         if(!["train", "bus"].includes(ovtype)) return message.channel.send(`Please enter a valid type. Usage: \`${config.prefix}addbus <bus/train number> bus/train\``); // Checks if ovtype is a bus or train
-        var statscount = await statsmodel.create(
+        let statscount = await statsmodel.create(
               { 
                 id: busnumber, 
                 curb: 0,
