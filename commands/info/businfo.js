@@ -30,11 +30,11 @@ module.exports = {
         if(args[0].startsWith('5')){
             embed.setDescription(`These stats are collected by ${yanick.tag}.`)
         } else {
-            embed.setDescription(`These are some stats that we've collected from the RRReis busses by ${daneric.tag} & ${frank.tag}!\n*These stats are collected from 10/5/2021 and are from the busses that we've been in!*`)
+            embed.setDescription(`These stats are collected by ${daneric.tag} & ${frank.tag}`)
         }
-        embed.addField('Total Curbs Hit', `${statscount.curb}`, true)
-        embed.addField("Total Delay", `${statscount.delay} minutes`, true)
-        embed.addField("Total Stops skipped", `${statscount.skips}`, true)
+        embed.addField(`Bus ${busnumber} Curbs Hit`, `${statscount.curb}`, true)
+        embed.addField(`Bus ${busnumber} Delay`, `${statscount.delay} minutes`, true)
+        embed.addField(`Bus ${busnumber} Stops skipped`, `${statscount.skips}`, true)
         message.channel.send({content: null, embeds: [embed] });
     },
 };
