@@ -14,6 +14,10 @@ module.exports = {
         const daneric = client.users.cache.get('244060616686305283');
         const frank = client.users.cache.get('207557174660956160');
 
+        if (!busnumber) { // If no bus number is specified
+            return message.channel.send(`${message.author}, you need to specify a bus number.`);
+        }
+
         let statscount = await statsmodel.findOne(
             {
               id: busnumber,
