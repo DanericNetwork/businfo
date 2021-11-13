@@ -21,7 +21,7 @@ module.exports = {
 
         const embed = new MessageEmbed()
             .setTitle(`Current bus stats!`)
-            .setColor("#328732")
+            .setColor("#6FADE3")
             .setDescription(`These are some stats that we've collected from the RRReis busses!\n*These stats are collected from 10/5/2021 and are from the busses that we've been in!*`)
             .addField("Total Curbs Hit", `${statscount.curb}`, true)
             .addField("Total Delay", `${statscount.delay} minutes`, true)

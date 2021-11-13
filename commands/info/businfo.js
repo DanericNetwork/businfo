@@ -24,7 +24,7 @@ module.exports = {
             });
         
         const embed = new MessageEmbed()
-        .setColor('#328732')
+        .setColor('#6FADE3')
         .setTitle(`Stats for bus ${busnumber}`)
         
         if(args[0].startsWith('5')){

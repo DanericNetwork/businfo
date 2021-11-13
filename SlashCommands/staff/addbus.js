@@ -48,7 +48,7 @@ module.exports = {
     statscount.save();
 
     const embed = new MessageEmbed()
-        .setColor('#328732')
+        .setColor('#6FADE3')
         .setTitle(`Bus/Train ${busnumber} added!`)
 
         interaction.followUp({content: null, embeds: [embed] });

@@ -10,7 +10,7 @@ module.exports = {
     run: async (client, message, args) => {
         const msg = await message.channel.send('Ping?');
         const embed = new MessageEmbed()
-        .setColor('#328732')
+        .setColor('#6FADE3')
         .setTitle('Connection')
         .addField('Discord', `\`${client.ws.ping}\` ms`, false)
     

@@ -17,7 +17,7 @@ module.exports = {
         const shit = await statsmodel.find()
         const transport = shit.map(x => `\`${x.id} - ${x.type}\``).join('\n');
         const embed = new MessageEmbed()
-        .setColor('#328732')
+        .setColor('#6FADE3')
         .setTitle('All Busses/Trains')
         .setDescription(`${transport}`)
         message.channel.send({content: null, embeds: [embed] });

@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, message, args) => {
         const pr = config.prefix;
         const embed = new MessageEmbed()
-        .setColor('#328732')
+        .setColor('#6FADE3')
         .setTitle('Information')
         .addField(`Info`, `\`${pr}businfo\`, \`${pr}busses\`, \`${pr}stats\``)
         .addField(`Admins`, `\`${pr}addbus\`, \`${pr}update\``)

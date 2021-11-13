@@ -69,7 +69,7 @@ module.exports = {
           )
           statscount.save();
         const embed = new MessageEmbed()
-        .setColor('#328732')
+        .setColor('#6FADE3')
         .setTitle(`Stats Updated for ${busnumber}`)
         .addField('New Total Curbs Hit', `${newcurb}`, true)
         .addField("New Total Delay", `${newdelay} minutes`, true)
