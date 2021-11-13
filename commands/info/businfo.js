@@ -23,8 +23,8 @@ module.exports = {
         .setColor('#328732')
         .setTitle(`Stats for bus ${busnumber}`)
         
-        if(args[0] == "5737"){
-            embed.setDescription(`These stats of bus 5737 are collected by ${yanick.tag}.`)
+        if(args[0].startsWith('5')){
+            embed.setDescription(`These stats are collected by ${yanick.tag}.`)
         } else {
             embed.setDescription(`These are some stats that we've collected from the RRReis busses by ${daneric.tag} & ${frank.tag}!\n*These stats are collected from 10/5/2021 and are from the busses that we've been in!*`)
         }
