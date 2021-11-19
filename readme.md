@@ -1,4 +1,4 @@
-# Mastermind
+# Busbot
 
 Busbot is a project to store data about busses/trains.
 
