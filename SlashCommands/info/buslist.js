@@ -16,12 +16,16 @@ module.exports = {
             {
               id: 'all',
             });
-        const shit = await statsmodel.find()
-        const transport = shit.map(x => `\`${x.id} - ${x.type}\``).join('\n');
+        const busses = await statsmodel.find({ type: 'bus' })
+        const bus = busses.map(x => `\`${x.id}\``).join(', ');
+
+        const trains = await statsmodel.find({ type: 'train' });
+        const train = trains.map(x => `\`${x.id}\``).join(', ');
         const embed = new MessageEmbed()
         .setColor('#6FADE3')
         .setTitle('All Busses/Trains')
-        .setDescription(`${transport}`)
+        .addField(`Busses`, bus)
+        .addField(`Trains`, train)
         await interaction.followUp({ embeds: [embed] });
             
     },
