@@ -49,6 +49,8 @@ module.exports = {
         {
           id: busnumber,
         });
+        
+        if (!busstats) returninteraction.followUp(`Couldn't find ${busnumber} in the database.`);
 
         // total new bus stats
         const newcurb = totalstats.curb + curbs;
