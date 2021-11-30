@@ -27,6 +27,8 @@ module.exports = {
           {
             id: busnumber,
           });
+        
+        if (!busnumber) return message.channel.send(`Couldn't find ${busnumber} in the database.`);
 
 // Checks
 
