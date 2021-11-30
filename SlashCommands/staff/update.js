@@ -34,7 +34,7 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
     // Checks if author is an admin
-    if(!config.admins.includes(interaction.member.id)) returninteraction.followUp("You do not have permission to use this command!");
+    if(!config.admins.includes(interaction.member.id)) return interaction.followUp("You do not have permission to use this command!");
 
     const busnumber = interaction.options.getInteger('busnum');
     const curbs = interaction.options.getInteger('curbs');
@@ -50,7 +50,7 @@ module.exports = {
           id: busnumber,
         });
         
-        if (!busstats) returninteraction.followUp(`Couldn't find ${busnumber} in the database.`);
+        if (!busstats) return interaction.followUp(`Couldn't find ${busnumber} in the database.`);
 
         // total new bus stats
         const newcurb = totalstats.curb + curbs;
