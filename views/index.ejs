@@ -9,6 +9,14 @@
     <link href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 </head>
 <body>
+    <% if(user) { %>
+        <% if(settings.admins.includes(user.user.id)) { %>
+        <div class="admin-div">
+            <a href="/admin">Admin</a>
+        </div>
+        <% } %>
+    <% } %>
+
     <h1 class="title">Global Stats</h1>
     <h4 class="stats"><i class="fad fa-bus"></i> Curbs Hit: <%- statscount.curb %></h1>
     <h4 class="stats"><i class="fad fa-clock"></i> Delay: <%- formatteddelay %> (<%- statscount.delay %> min)</h1>
