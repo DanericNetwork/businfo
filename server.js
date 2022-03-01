@@ -41,11 +41,13 @@ app.get('/', async (req, res) => {
         {
           id: 'all',
         });
+        let settings = await settingsModel.findOne({ id: 'data' });
         const busnum = await statsModel.find();
         const busi = busnum.map(x => x);
         const msdelay = statscount.delay * 60000;
         const formatteddelay = moment.duration(msdelay).format("h [hours], m [minutes]");
 	res.render('index', {
+                settings,
                 user: req.user,
                 statscount,
                 formatteddelay,
@@ -72,13 +74,14 @@ app.get('/stats/:bus', async (req, res) => {
 //   Admin routes
 // ------------------
 app.get('/admin', async (req, res) => {
+        let stats = await statsModel.find();
         let settings = await settingsModel.findOne({ id: 'data' });
-        let items = await itemModel.find({});
+        
         if (!req.user) return res.redirect('/login');
         if(!settings.admins.includes(req.user.user.id)) return res.redirect('/');
         res.render('admin/index', {
             settings,
-            items,
+            stats,
             user: req.user
         });
     });
