@@ -7,12 +7,34 @@ const statsmodel = require('./models/stats');
 const db = require('mongoose');
 const moment = require('moment');
 require('moment-duration-format');
+const DiscordOauth2 = require("discord-oauth2");
+const session = require('express-session')
+// get body data from post requests
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const oauth = new DiscordOauth2({
+    clientId: config.clientId,
+    clientSecret: config.clientSecret,
+    redirectUri: config.redirectUri,
+});
+
+app.use(session({ secret: 'YesVeryMooiDitMoetVerySecretZijn01200', cookie: { maxAge: 6000000 }}))
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname + "/views"));
 app.use(express.static(__dirname + '/public'));
 
-// Main page
+app.use((req, res, next) => {
+        req.user = req.session.user;
+        next();
+    })
+
+// ------------------
+//   Public routes
+// ------------------
+
 app.get('/', async (req, res) => {
     let statscount = await statsmodel.findOne(
         {
@@ -23,14 +45,14 @@ app.get('/', async (req, res) => {
         const msdelay = statscount.delay * 60000;
         const formatteddelay = moment.duration(msdelay).format("h [hours], m [minutes]");
 	res.render('index', {
-        statscount,
-        formatteddelay,
-        busnum,
-        busi,
+                user: req.user,
+                statscount,
+                formatteddelay,
+                busnum,
+                busi,
 	});
 });
 
-// Stats page of bus
 app.get('/stats/:bus', async (req, res) => {
     let statscount = await statsmodel.findOne(
         {
@@ -45,7 +67,10 @@ app.get('/stats/:bus', async (req, res) => {
 	});
 });
 
-// API of bus
+// ------------------
+//   API routes
+// ------------------
+
 app.get('/api/:bus', async (req, res) => {
     let statscount = await statsmodel.findOne(
         {
@@ -68,7 +93,6 @@ app.get('/api/:bus', async (req, res) => {
         }
 });
 
-// Global API of total stats
 app.get('/api', async (req, res) => {
     let statscount = await statsmodel.findOne(
         {
@@ -80,6 +104,41 @@ app.get('/api', async (req, res) => {
                 "skips": statscount.skips
 	});
 });
+
+// ----------------------------
+//   Authentication routes
+// ----------------------------
+
+app.get('/login', (req, res) => {
+        res.redirect(config.oauthUrl);
+    });
+    
+    app.get('/logout', (req, res) => {
+        req.session.destroy();
+        res.redirect('/');
+    });
+    
+    app.get('/callback/discord', async (req, res) => {
+        if(!req.query.code) {
+            res.redirect('/');
+        }
+        try {
+            let tokenRequest = await oauth.tokenRequest({
+                code: req.query.code,
+                scope: "identify email",
+                grantType: "authorization_code",
+            });
+            req.session.user = {};
+            req.session.user.token = tokenRequest.access_token;
+            req.session.user.loggedIn = true;
+            let user = await oauth.getUser(tokenRequest.access_token);
+            req.session.user.user = user;
+            res.redirect('/');
+        } catch(e) {
+            res.redirect('/');
+            console.trace(e);
+        }
+    })
 
 // Launch app on port
 app.listen(port, () => console.log('\x1b[31m%s\x1b[0m', '[SERVER]', '\x1b[32m[WEB]\x1b[0m', `Connected @ localhost:${port}`));
