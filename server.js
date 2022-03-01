@@ -3,7 +3,8 @@ const app = express();
 const config = require('./config');
 const path = require("path");
 const port = config.port || 1234;
-const statsmodel = require('./models/stats');
+const statsModel = require('./models/stats');
+const settingsModel = require('./models/settings');
 const db = require('mongoose');
 const moment = require('moment');
 require('moment-duration-format');
@@ -36,11 +37,11 @@ app.use((req, res, next) => {
 // ------------------
 
 app.get('/', async (req, res) => {
-    let statscount = await statsmodel.findOne(
+    let statscount = await statsModel.findOne(
         {
           id: 'all',
         });
-        const busnum = await statsmodel.find();
+        const busnum = await statsModel.find();
         const busi = busnum.map(x => x);
         const msdelay = statscount.delay * 60000;
         const formatteddelay = moment.duration(msdelay).format("h [hours], m [minutes]");
@@ -54,7 +55,7 @@ app.get('/', async (req, res) => {
 });
 
 app.get('/stats/:bus', async (req, res) => {
-    let statscount = await statsmodel.findOne(
+    let statscount = await statsModel.findOne(
         {
           id: req.params.bus,
         });
@@ -72,7 +73,7 @@ app.get('/stats/:bus', async (req, res) => {
 // ------------------
 
 app.get('/api/:bus', async (req, res) => {
-    let statscount = await statsmodel.findOne(
+    let statscount = await statsModel.findOne(
         {
           id: req.params.bus,
         });
@@ -94,7 +95,7 @@ app.get('/api/:bus', async (req, res) => {
 });
 
 app.get('/api', async (req, res) => {
-    let statscount = await statsmodel.findOne(
+    let statscount = await statsModel.findOne(
         {
           id: 'all',
         });
