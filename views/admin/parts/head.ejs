@@ -2,8 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bus Information - <%- title %> </title>
+    <title>Bus Information - <%- title %></title>
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
 </head>
 <body>
+    <div class="top">
+        <div class="top-content">
+            <div class="navbar">
+                <a class="navbar-title" href="/">Admin</a>
+                <div class="right">
+                    <a class="nav-button" href="/admin">Home</a>
+                    <a class="nav-button" href="/admin/bus">Bus</a>
+                    <% if(user) { %>
+                            <a class="nav-button" href="/">User</a>
+                            <a class="nav-button" href="/logout">Logout</a>
+                    <% } else { %>
+                        <a class="nav-button" href="/login">Login</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
