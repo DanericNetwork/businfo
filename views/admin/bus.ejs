@@ -1,0 +1,36 @@
+<%- include('./parts/head', { title: 'Admin' }) %>
+
+<div class="container">
+    <form action="/api/bus/add" class="form" method="POST">
+        <h1 style="justify-content: center; margin: auto;">Add Bus</h1>
+        <div class="input-group">
+            <h3 for="bus_number">Bus Number</h3>
+            <input type="text" name="bus_number" id="bus_number" class="form-control">
+            <button style="text-align: center;" class="btn btn-primary btn-long" type="submit">Add</button>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <form action="/api/rit/add" class="form" method="POST">
+        <h1 style="justify-content: center; margin: auto;">Add Rit</h1>
+        <div class="input-group">
+            <h3 style="margin: 0;">From</h3>
+            <input type="text" name="from" id="from" class="form-control">
+            <h3 style="margin: 0;">To</h3>
+            <input type="text" name="to" id="to" class="form-control">
+            <h3 style="margin: 0;">Bus Number</h3>
+            <input type="text" name="busnum" id="busnum" class="form-control">
+            <h3 style="margin: 0;">Curbs</h3>
+            <input type="text" name="curbs" id="curbs" class="form-control">
+            <h3 style="margin: 0;">Delay</h3>
+            <input type="text" name="delay" id="delay" class="form-control">
+            <h3 style="margin: 0;">Skips</h3>
+            <input type="text" name="skips" id="skips" class="form-control">
+            <h3 style="margin: 0;">Date</h3>
+            <input type="date" name="date" id="date" class="form-control">
+            <button style="text-align: center;" class="btn btn-primary btn-long" type="submit">Add</button>
+        </div>
+    </form>
+</div>
+<%- include('./parts/footer') %>
