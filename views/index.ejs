@@ -30,14 +30,6 @@
         <a class="busbtn" href="/stats/<%- bus.id %>"><i class="fas fa-bus"></i> <%- bus.id %></a>
         <% }); %>
     </div>
-    <h2 class="stats-title">Trains</h2>
-    <div class="trains">
-        <% busnum.forEach (bus => { 
-            if(bus.id === "all") return; 
-            if(bus.type == "bus") return; %>
-        <a class="busbtn" href="/stats/<%- bus.id %>"><i class="fas fa-bus"></i> <%- bus.id %></a>
-        <% }); %>
-    </div>
 </div>
     
 <div class="info">
