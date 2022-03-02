@@ -85,6 +85,18 @@ app.get('/admin', async (req, res) => {
             user: req.user
         });
     });
+app.get('/admin/bus', async (req, res) => {
+        let stats = await statsModel.find();
+        let settings = await settingsModel.findOne({ id: 'data' });
+        
+        if (!req.user) return res.redirect('/login');
+        if(!settings.admins.includes(req.user.user.id)) return res.redirect('/');
+        res.render('admin/bus', {
+            settings,
+            stats,
+            user: req.user
+        });
+    });
 
 // ------------------
 //   API routes
