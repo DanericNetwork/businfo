@@ -5,6 +5,7 @@ const path = require("path");
 const port = config.port || 1234;
 const statsModel = require('./models/stats');
 const settingsModel = require('./models/settings');
+const ritModel = require('./models/rit');
 const db = require('mongoose');
 const moment = require('moment');
 require('moment-duration-format');
@@ -135,6 +136,38 @@ app.get('/api', async (req, res) => {
                 "skips": statscount.skips
 	});
 });
+
+app.post('/api/rit/add', async (req, res) => {
+    
+    try {
+        // check if user is logged in
+        if (!req.user) return res.redirect('/login');
+    
+        // check if user is admin
+        let settings = await settingsModel.findOne({ id: 'data' });
+        if(!settings.admins.includes(req.user.user.id)) {
+            return res.status(403).json({});
+        }
+
+        settings.totalritten++;
+        settings.save();
+    
+        let newrit = ritModel.create({
+            id: settings.totalritten,
+            busnum: req.body.busnum,
+            curbs: req.body.curbs,
+            delay: req.body.delay,
+            skips: req.body.skips,
+            from: req.body.from,
+            to: req.body.to,
+            date: req.body.date,
+        });
+    } catch (e) {
+        console.log(e);
+    }
+    // redirect back to admin bus page
+    res.redirect('/admin/bus');
+})
 
 // ----------------------------
 //   Authentication routes
